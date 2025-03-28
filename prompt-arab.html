@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برومبت مناقشة النتائج</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Tajawal';
+            src: url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: normal;
+            font-size: 12pt;
+            line-height: 1.5;
+            margin: 0;
+            padding: 15px;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #0066cc;
+            font-weight: normal;
+            font-size: 18pt;
+            text-align: center;
+            margin: 15px 0 10px 0;
+        }
+        
+        .author-info {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 8px;
+        }
+        
+        .contact-links a {
+            color: #3498db;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #2c3e50;
+        }
+        
+        h2 {
+            color: #800080;
+            font-weight: normal;
+            font-size: 16pt;
+            margin: 15px 0 10px 0;
+        }
+        
+        h3 {
+            color: #cc0000;
+            font-weight: normal;
+            font-size: 14pt;
+            margin: 12px 0 8px 0;
+        }
+        
+        .input-section {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .file-input {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 6px;
+            font-family: 'Tajawal', sans-serif;
+            transition: background-color 0.3s;
+        }
+        
+        .file-input:hover {
+            background-color: #2980b9;
+        }
+        
+        .file-name {
+            margin-right: 8px;
+            color: #7f8c8d;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px auto;
+        }
+        
+        button {
+            border: none;
+            padding: 10px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12pt;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        #generate-btn {
+            background-color: #2ecc71;
+            color: white;
+            width: 200px;
+        }
+        
+        #generate-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        #copy-btn {
+            background-color: #3498db;
+            color: white;
+            display: none;
+        }
+        
+        #copy-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        #reset-btn {
+            background-color: #e74c3c;
+            color: white;
+            display: none;
+        }
+        
+        #reset-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+        
+        .instructions {
+            background-color: #eaf7fd;
+            padding: 15px;
+            border-right: 4px solid #3498db;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        p, ol, ul {
+            margin: 0 0 8px 0;
+            line-height: 1.5;
+        }
+        
+        ol, ul {
+            padding-right: 20px;
+        }
+        
+        li {
+            margin-bottom: 6px;
+        }
+        
+        strong {
+            font-weight: normal;
+            color: #2c3e50;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>بُرومبتْ مناقشة النتائج</h1>
+        
+        <div class="author-info">
+            <div>ماي عبد الغاني</div>
+            <div class="contact-links">
+                <a href="mailto:may01dz@gmail.com">
+                    <i class="fas fa-envelope"></i> may01dz@gmail.com
+                </a>
+                <a href="https://t.me/may01dz" target="_blank">
+                    <i class="fab fa-telegram"></i> t.me/may01dz
+                </a>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>عن الأداة:</h3>
+            <p>هذه الصفحة تساعد الباحثين على إنشاء مُحثٌ (prompt) يقوم بحثِ الشات بوت على مناقشة النتائج و مقارنتها مع نتائج الدراسات السابقة.</p>
+            
+            <h3>كيفية الاستخدام:</h3>
+            <ol>
+                <li>قم بتحميل ملف يحتوي على النتائج الأولية لبحثك</li>
+                <li>أرفق الدراسات المرجعية التي تريد المقارنة معها</li>
+                <li>اضغط على زر "إنشاء" للحصول على المحفز الجاهز</li>
+                <li>استخدم أزرار النسخ أو إعادة التعيين حسب الحاجة</li>
+            </ol>
+        </div>
+        
+        <div class="input-section">
+            <label for="results-file">ملف النتائج:</label>
+            <label for="results-file" class="file-input">تصفح</label>
+            <span id="results-file-name" class="file-name">لم يتم اختيار ملف بعد</span>
+            <input type="file" id="results-file" accept=".pdf,.doc,.docx">
+        </div>
+        
+        <div class="input-section">
+            <label for="references-files">الملفات المرجعية:</label>
+            <label for="references-files" class="file-input">تصفح</label>
+            <span id="references-files-names" class="file-name">لم يتم اختيار ملفات بعد</span>
+            <input type="file" id="references-files" multiple accept=".pdf,.doc,.docx">
+        </div>
+        
+        <div class="button-container">
+            <button id="generate-btn">إنشاء</button>
+            <button id="copy-btn"><i class="far fa-copy"></i> نسخ</button>
+            <button id="reset-btn"><i class="fas fa-redo"></i> إعادة تعيين</button>
+        </div>
+        
+        <div id="output">
+            <h2>تحليل النتائج والمناقشة</h2>
+            <div id="output-content"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('results-file').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'لم يتم اختيار ملف بعد';
+            document.getElementById('results-file-name').textContent = fileName;
+        });
+        
+        document.getElementById('references-files').addEventListener('change', function(e) {
+            const files = e.target.files;
+            let fileNames = '';
+            
+            if (files.length === 0) {
+                fileNames = 'لم يتم اختيار ملفات بعد';
+            } else {
+                for (let i = 0; i < files.length; i++) {
+                    if (i > 0) fileNames += '، ';
+                    fileNames += files[i].name;
+                }
+            }
+            
+            document.getElementById('references-files-names').textContent = fileNames;
+        });
+        
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            const resultsFile = document.getElementById('results-file').files[0];
+            const referencesFiles = document.getElementById('references-files').files;
+            
+            if (!resultsFile) {
+                alert('الرجاء تحميل ملف النتائج أولاً');
+                return;
+            }
+            
+            if (referencesFiles.length === 0) {
+                alert('الرجاء تحميل الملفات المرجعية أولاً');
+                return;
+            }
+            
+            // تحضير أسماء الملفات المرجعية
+            let refNames = '';
+            for (let i = 0; i < referencesFiles.length; i++) {
+                if (i > 0) refNames += '، ';
+                refNames += referencesFiles[i].name;
+            }
+            
+            // إنشاء المحتوى الناتج
+            const outputContent = document.getElementById('output-content');
+            outputContent.innerHTML = `
+                <p><strong>التعليمات:</strong> تصرف كخبير أكاديمي متخصص في تحليل الأبحاث العلمية. مهمتك هي مساعدتي في كتابة قسم "المناقشة والنتائج" وفق المعايير الأكاديمية الدولية.</p>
+                
+                <p><strong>البيانات المقدمة:</strong></p>
+                <ol>
+                    <li>ملف النتائج البحثية: <strong>"${resultsFile.name}"</strong></li>
+                    <li>الدراسات المرجعية: <strong>"${refNames}"</strong></li>
+                </ol>
+                
+                <h3>المطلوب منك:</h3>
+                <ol>
+                    <li><strong>تحليل النتائج:</strong>
+                        <ul>
+                            <li>استخرج النتائج الرئيسية والفرعية من البحث</li>
+                            <li>صنفها حسب الأهمية والحداثة</li>
+                        </ul>
+                    </li>
+                    <li><strong>المقارنة العلمية:</strong>
+                        <ul>
+                            <li>قارن كل نتيجة مع ما ورد في الدراسات المرجعية</li>
+                            <li>حدد أوجه الاتفاق والاختلاف بدقة</li>
+                        </ul>
+                    </li>
+                    <li><strong>التفسير الأكاديمي:</strong>
+                        <ul>
+                            <li>قدم تفسيرات علمية للتباينات</li>
+                            <li>ناقش دلالات النتائج في سياقها العلمي</li>
+                        </ul>
+                    </li>
+                    <li><strong>الاقتراحات البحثية:</strong>
+                        <ul>
+                            <li>قدم توصيات لبحوث مستقبلية</li>
+                            <li>اقترح تطبيقات عملية للنتائج</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h3>معايير التنفيذ:</h3>
+                <ul>
+                    <li>استخدم لغة أكادمية واضحة ودقيقة</li>
+                    <li>أشر إلى الدراسات المرجعية بوضوح (اسم الملف، رقم الصفحة)</li>
+                    <li>ركز على التحليل النقدي وليس الوصف</li>
+                    <li>حافظ على التسلسل المنطقي في العرض</li>
+                </ul>
+                
+                <h3>ملاحظات مهمة:</h3>
+                <ul>
+                    <li>لا تستخدم أي مصادر خارجية غير المقدمة</li>
+                    <li>التزم بالمنهجية العلمية الموضوعية</li>
+                    <li>ابتعد عن التكرار والعبارات العامة</li>
+                </ul>
+            `;
+            
+            document.getElementById('output').style.display = 'block';
+            document.getElementById('copy-btn').style.display = 'block';
+            document.getElementById('reset-btn').style.display = 'block';
+        });
+        
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            const outputContent = document.getElementById('output-content');
+            const range = document.createRange();
+            range.selectNode(outputContent);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            
+            // تغيير نص الزر مؤقتًا للإشارة إلى نجاح النسخ
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+            setTimeout(() => {
+                this.innerHTML = originalText;
+            }, 2000);
+        });
+        
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            // إعادة تعيين حقول الرفع
+            document.getElementById('results-file').value = '';
+            document.getElementById('references-files').value = '';
+            document.getElementById('results-file-name').textContent = 'لم يتم اختيار ملف بعد';
+            document.getElementById('references-files-names').textContent = 'لم يتم اختيار ملفات بعد';
+            
+            // إخفاء المخرجات والأزرار الإضافية
+            document.getElementById('output').style.display = 'none';
+            document.getElementById('copy-btn').style.display = 'none';
+            document.getElementById('reset-btn').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
